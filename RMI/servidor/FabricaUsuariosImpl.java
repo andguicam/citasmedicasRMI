@@ -99,9 +99,9 @@ public class FabricaUsuariosImpl extends UnicastRemoteObject implements FabricaU
         // }else{
         // return false;
         // }
-
-        // TODO: Borrar al implementar
-        return null;
+        Usuario user;
+        user = new Usuario(nom, ap, d, fech, dir, tipo);
+        return user;
     }
 
     @Override
