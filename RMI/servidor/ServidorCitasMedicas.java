@@ -15,7 +15,7 @@ class ServidorCitasMedicas {
             FabricaUsuarios fu = new FabricaUsuariosImpl();
             Naming.rebind("rmi://localhost:" + args[0] + "/CitasMedicasFabricaUsuarios", fu);
             ServicioCitas fc = new ServicioCitasImpl();
-            Naming.rebind("rmi://localhost:" + args[0] + "/CitasMedicasServicioCitas", fu);
+            Naming.rebind("rmi://localhost:" + args[0] + "/CitasMedicasServicioCitas", fc);
 
         } catch (RemoteException e) {
             System.err.println("Error de comunicacion: " + e.toString());
