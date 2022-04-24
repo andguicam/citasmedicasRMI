@@ -15,8 +15,10 @@ class ServidorCitasMedicas {
         try {
         	LocateRegistry.createRegistry(22334);
             FabricaUsuarios fu = new FabricaUsuariosImpl();
+            ServicioCitas sc = new ServicioCitasImpl(); 
             System.out.println(" despues de FabricaUsuarios");
             Naming.rebind("rmi://localhost:"+args[0]+"/CitasMedicasFabricaUsuarios", fu);
+            Naming.rebind("rmi://localhost:"+args[0]+"/CitasMedicasServicioCitas", sc);
 
         } catch (RemoteException e) {
             System.err.println("Error de comunicacion: " + e.toString());

@@ -4,7 +4,7 @@ import java.rmi.*;
 import java.util.*;
 
 
-interface ServicioCitas extends Remote {
+public interface ServicioCitas extends Remote {
     List<Cita> obtenerListaCitas() throws RemoteException;
     Boolean reservarCita(Usuario user, Cita cita) throws RemoteException;
     Boolean anularCita(Usuario user, Cita cita) throws RemoteException;

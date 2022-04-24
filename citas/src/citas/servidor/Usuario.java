@@ -13,7 +13,7 @@ public class Usuario implements Serializable {
     private String direccion;
     private String tipo_usuario;
 
-    Usuario(String nom, String ap, String d, String p, Date fech, String dir,String tipo) {
+    public Usuario(String nom, String ap, String d, String p, Date fech, String dir,String tipo) {
         nombre = nom;
         apellidos = ap;
         dni = d;

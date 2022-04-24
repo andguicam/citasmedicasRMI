@@ -1,36 +1,32 @@
-
-package citas.cliente;
+package citas.cliente; 
 
 import java.rmi.*;
 import java.rmi.server.*;
 import citas.servidor.*;
 
-public class Cliente{
-    static public void main (String args[]) {
-        if (args.length<5) {
-            System.err.println("Uso: Cliente hostregistro numPuertoRegistro usuario pass rol");
+import javax.swing.plaf.FontUIResource;
+
+class Cliente {
+    static public void main(String args[]) {
+        if (args.length != 5) {
+            System.err.println(
+                    "Uso: ClienteLog hostregistro numPuertoRegistro nombreFichero identificadorAplicacion nombreCliente");
             return;
         }
 
-       if (System.getSecurityManager() == null)
+        if (System.getSecurityManager() == null)
             System.setSecurityManager(new SecurityManager());
 
         try {
-            String user = args[2];
-            String pass = args[3];
-            String tipo = args[4];
+            FabricaUsuarios fu = (FabricaUsuarios) Naming.lookup("//" + args[0] + ":" + args[1] + "/CitasMedicasFabricaUsuarios");          
+            ServicioCitas sc = (ServicioCitas) Naming.lookup("//" + args[0] + ":" + args[1] + "/CitasMedicasServicioCitas");
+            formulario form = new formulario(fu, sc);
+            form.setVisible(true);
 
-            FabricaUsuarios fabricaUsuarios = (FabricaUsuarios) Naming.lookup("//"+ args[0] +":" + args[1] + "/CitasMedicasFabricaUsuarios");
-            
-            Usuario usuario = fabricaUsuarios.doLogin(user, pass, tipo); 
-            System.out.println(usuario);
-
-        }
-        catch (RemoteException e) {
+        } catch (RemoteException e) {
             System.err.println("Error de comunicacion: " + e.toString());
-        }
-        catch (Exception e) {
-            System.err.println("Excepcion en ClienteEco:");
+        } catch (Exception e) {
+            System.err.println("Excepcion en ClienteLog:");
             e.printStackTrace();
         }
     }

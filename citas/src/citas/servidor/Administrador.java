@@ -9,12 +9,7 @@ public class Administrador extends Usuario {
     
     Administrador (String nom, String ap, String d, String pass, Date fech, String dir, String tipo) throws RemoteException{
         super(nom, ap, d, pass, fech, dir, tipo);
-        try {
-            fu = new FabricaUsuariosImpl();
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
+
     }
 
     // Devuelve: True si ha tenido exito, False si no
@@ -29,5 +24,9 @@ public class Administrador extends Usuario {
     // Devuelve: True si ha tenido exito, False si no
     public Boolean modificarUsuario(Usuario user_antiguo, Usuario user_nuevo) throws RemoteException{
         return fu.modificarUsuario(user_antiguo, user_nuevo);
+    }
+    
+    public void setFabricaUsuario (FabricaUsuarios fu) {
+    	this.fu = fu; 
     }
 }

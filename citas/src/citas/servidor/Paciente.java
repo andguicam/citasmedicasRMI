@@ -7,21 +7,24 @@ import java.util.List;
 
 public class Paciente extends Usuario {
     private List<Cita> citas;
-
+    ServicioCitas sc;
     Paciente (String nom, String ap, String d, String pass, Date fech, String dir, String tipo){
         super(nom, ap, d, pass,  fech, dir, tipo);
+        this.sc = null; 
     }
 
     public List<Cita> verCitas() throws RemoteException, SQLException {
-        ServicioCitas sc = new ServicioCitasImpl();
         return sc.obtenerListaCitas(); 
     }
     public Boolean reservarCita(Usuario user, Cita cita) throws RemoteException, SQLException{
-        ServicioCitas sc = new ServicioCitasImpl();
         return sc.reservarCita(user, cita);
     }
     public  Boolean anularCita(Usuario user, Cita cita) throws RemoteException, SQLException{
-        ServicioCitas sc = new ServicioCitasImpl();
         return sc.anularCita(user, cita);
     }
+    
+    public void setServicioCitas(ServicioCitas sc) {
+    	this.sc = sc; 
+    }
+    
 }

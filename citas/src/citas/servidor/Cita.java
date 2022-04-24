@@ -1,9 +1,11 @@
 package citas.servidor; 
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Cita {
-    private String id;
+public class Cita implements Serializable{
+    private static final long serialVersionUID = 1L;
+	private String id;
     private Date fechaInicio;
     private Date fechaFin;
     private String consulta;
@@ -60,9 +62,9 @@ public class Cita {
     public String toString () {
     	
     	return "ID: " + this.id + 
-    			"\nFecha de inicio: "+ this.fechaInicio + 
-    			"\nFecha de fin: "+ this.fechaFin + 
-    			"\nConsulta: "+ this.consulta + 
-    			"\nMedico Responsable: " + this.medicoResponsable.getNombre() + " " + this.medicoResponsable.getApellidos(); 
+    			" | Fecha de inicio: "+ this.fechaInicio + 
+    			" | Fecha de fin: "+ this.fechaFin + 
+    			" | Consulta: "+ this.consulta + 
+    			" | Medico Responsable: " + this.medicoResponsable.getNombre() + " " + this.medicoResponsable.getApellidos(); 
     }
 }

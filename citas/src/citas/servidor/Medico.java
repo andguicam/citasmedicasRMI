@@ -9,12 +9,7 @@ public class Medico extends Usuario {
     private ServicioCitas sc;
     Medico (String nom, String ap, String d, String pass, Date fech, String dir, String tipo) throws RemoteException{
         super(nom, ap, d, pass, fech, dir, tipo);
-        try {
-            sc= new ServicioCitasImpl();
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+ 
     }
 
     public List<Cita> verCitas() throws RemoteException{
@@ -28,5 +23,9 @@ public class Medico extends Usuario {
     //Devuelve: True si ha tenido exito, False si no
     public Boolean eliminarCita(Cita cita) throws RemoteException{
         return sc.eliminarCita(cita);
+    }
+    
+    public void setServicioCitas (ServicioCitas sc) {
+    	this.sc=sc; 
     }
 }
