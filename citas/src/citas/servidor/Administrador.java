@@ -1,10 +1,7 @@
 package citas.servidor; 
 
 import java.rmi.RemoteException;
-import java.sql.SQLException;
 import java.util.Date;
-
-import javax.xml.catalog.Catalog;
 
 public class Administrador extends Usuario {
 

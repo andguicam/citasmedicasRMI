@@ -1,14 +1,10 @@
 package citas.servidor; 
 
-import java.rmi.*;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Date;
-
-import javax.naming.NameNotFoundException;
 
 public class FabricaUsuariosImpl extends UnicastRemoteObject implements FabricaUsuarios{
     // Variable donde se guarda la conexion que se establece con la base de datos

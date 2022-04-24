@@ -1,9 +1,11 @@
 package citas.servidor; 
 
+import java.io.Serializable;
 import java.util.Date;
 
- class Usuario {
-    private String nombre;
+public class Usuario implements Serializable {
+    private static final long serialVersionUID = 1L;
+	private String nombre;
     private String apellidos;
     private String dni;
     private String password;

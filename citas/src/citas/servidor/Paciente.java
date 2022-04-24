@@ -12,18 +12,14 @@ public class Paciente extends Usuario {
         super(nom, ap, d, pass,  fech, dir, tipo);
     }
 
-    // TODO: Que devuelve cada metodo
-    // TODO: Parametros
     public List<Cita> verCitas() throws RemoteException, SQLException {
         ServicioCitas sc = new ServicioCitasImpl();
-        return sc.obtenerListaCitas(); //Esto devuelve una lista
+        return sc.obtenerListaCitas(); 
     }
-    // Devuelve: True si ha tenido exito, False si no
     public Boolean reservarCita(Usuario user, Cita cita) throws RemoteException, SQLException{
         ServicioCitas sc = new ServicioCitasImpl();
         return sc.reservarCita(user, cita);
     }
-    // Devuelve: True si ha tenido exito, False si no
     public  Boolean anularCita(Usuario user, Cita cita) throws RemoteException, SQLException{
         ServicioCitas sc = new ServicioCitasImpl();
         return sc.anularCita(user, cita);

@@ -1,7 +1,6 @@
 package citas.servidor; 
 
 import java.util.*;
-import java.nio.file.spi.FileTypeDetector;
 import java.sql.*;
 import java.util.Date;
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
@@ -249,8 +248,7 @@ public class AccesoBaseDatos {
 		String query = "INSERT INTO [dbo].[citas] ( [id], [fechaInicio], [fechaFin], [dniMedico], [consulta]) VALUES ( ? , ? , ? , ? , ? )"; 
 
 		PreparedStatement insertStatement = 
-			conn.prepareStatement("INSERT INTO [dbo].[citas] ([id], [fechaInicio], [fechaFin], [dniMedico], [consulta])"+
-									" VALUES (?, ?, ?, ?, ?);");
+			conn.prepareStatement(query);
 		
 
 		

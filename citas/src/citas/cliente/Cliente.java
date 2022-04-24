@@ -22,8 +22,8 @@ public class Cliente{
 
             FabricaUsuarios fabricaUsuarios = (FabricaUsuarios) Naming.lookup("//"+ args[0] +":" + args[1] + "/CitasMedicasFabricaUsuarios");
             
-            fabricaUsuarios.doLogin(user, pass, tipo); 
-
+            Usuario usuario = fabricaUsuarios.doLogin(user, pass, tipo); 
+            System.out.println(usuario);
 
         }
         catch (RemoteException e) {
